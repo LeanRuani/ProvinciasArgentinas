@@ -1,43 +1,21 @@
 import React from "react";
+import { Switch, BrowserRouter, Route } from "react-router-dom";
+
+import Provincia from "./components/provincias";
+import Departamento from "./components/departamentos";
 
 import "./App.css";
 
-class App extends React.Component {
-  state = {
-    data: {
-      provincias: []
-    }
-  };
-
-  componentDidMount() {
-    this.fetchProvincia();
-    console.log(this.state.data.respuesta);
-  }
-
-  fetchProvincia = async () => {
-    const respuesta = await fetch(
-      "https://apis.datos.gob.ar/georef/api/provincias"
-    );
-    const data = await respuesta.json();
-
-    //Guardo los datos
-    this.setState({
-      data: data
-    });
-  };
-
-  render() {
-    return (
-      <ul>
-        {this.state.data.provincias.map(p => (
-          <li key={p.id}>
-            <p>{p.nombre}</p>
-          </li>
-        ))}
-        ;
-      </ul>
-    );
-  }
+function App() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Provincia} />
+        <Route exact path="/:depId" component={Departamento} />
+        {/* <Route component={NotFound}/> */}
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;
