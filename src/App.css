@@ -1,3 +1,11 @@
+body {
+  background-color: #cc957b;
+}
+
+.header-container {
+  background-color: #282c34;
+}
+
 .App {
   text-align: center;
 }

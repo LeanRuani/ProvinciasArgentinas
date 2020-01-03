@@ -2,13 +2,16 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import Provincia_Cartel from "./Provincia_Cartel";
+import Header from "./header";
 
 class Provincia extends React.Component {
   state = {
     carga: true,
     error: null,
     data: {
-      provincias: []
+      provincias: {
+        centroide: []
+      }
     }
   };
 
@@ -44,17 +47,27 @@ class Provincia extends React.Component {
     if (this.state.error) {
       return "Error";
     }
+
     return (
       <React.Fragment>
-        <ul>
+        <Header />
+        <div className="row m-2 ">
           {this.state.data.provincias.map(p => (
-            <li key={p.id}>
-              <Link to={`/${p.nombre}`}>
-                <Provincia_Cartel nombre={p.nombre} />
+            <div className="w-25" key={p.id}>
+              <Link
+                className=" text-reset text-decoration-none"
+                to={`/${p.nombre}`}
+              >
+                <Provincia_Cartel
+                  id={p.id}
+                  nombre={p.nombre}
+                  lat={p.centroide.lat}
+                  lon={p.centroide.lon}
+                />
               </Link>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </React.Fragment>
     );
   }
