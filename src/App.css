@@ -6,6 +6,10 @@ body {
   background-color: #282c34;
 }
 
+.carta:hover {
+  color: red;
+}
+
 .App {
   text-align: center;
 }

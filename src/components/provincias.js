@@ -1,8 +1,12 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-import Provincia_Cartel from "./Provincia_Cartel";
-import Header from "./header";
+// import { Link } from "react-router-dom";
+// import Provincia_Cartel from "./Provincia_Cartel";
+
+import Map from "./Maps";
+import credencial from "./credenciales";
+
+const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credencial.mapsKey}`;
 
 class Provincia extends React.Component {
   state = {
@@ -50,27 +54,31 @@ class Provincia extends React.Component {
 
     return (
       <React.Fragment>
-        <Header />
-        <div className="row m-2 ">
-          {this.state.data.provincias.map(p => (
-            <div className="w-25" key={p.id}>
-              <Link
-                className=" text-reset text-decoration-none"
-                to={`/${p.nombre}`}
-              >
-                <Provincia_Cartel
-                  id={p.id}
-                  nombre={p.nombre}
-                  lat={p.centroide.lat}
-                  lon={p.centroide.lon}
-                />
-              </Link>
-            </div>
-          ))}
-        </div>
+        {/* {this.state.data.provincias.map(p => console.log(p.centroide.lat))} */}
+
+        <Map
+          id_nombre={this.state.data.provincias.map(p => p)}
+          // nombre={this.state.data.provincias.map(p => p.nombre)}
+          googleMapURL={mapURL}
+          // coords={this.state.data.provincias.map(p => p.centroide)}
+          containerElement={<div style={{ height: `400px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+          loadingElement={<div style={{ height: `100%` }} />}
+        />
       </React.Fragment>
     );
   }
 }
 
 export default Provincia;
+
+// {/* <div className="row m-2 "> */}
+// {this.state.data.provincias.map(p =>
+//
+//   ({
+//     /*
+//   })
+
+//   // </div>
+// )}
+// {/* </div> */}

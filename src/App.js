@@ -1,20 +1,20 @@
 import React from "react";
-import { Switch, BrowserRouter, Route } from "react-router-dom";
+// import { Switch, BrowserRouter, Route } from "react-router-dom";
+// import Map from "./components/Maps";
+// import credencial from "./components/credenciales";
+// import Departamento from "./components/departamentos";
 
 import Provincia from "./components/provincias";
-import Departamento from "./components/departamentos";
+import Header from "./components/header";
 
 import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Provincia} />
-        <Route exact path="/:depId" component={Departamento} />
-        {/* <Route component={NotFound}/> */}
-      </Switch>
-    </BrowserRouter>
+    <React.Fragment>
+      <Header />
+      <Provincia />
+    </React.Fragment>
   );
 }
 
