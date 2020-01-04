@@ -14,7 +14,7 @@ class Departamento extends React.Component {
 
   fetchDepto = async () => {
     const respuesta = await fetch(
-      `https://apis.datos.gob.ar/georef/api/departamentos?provincia=${this.props.match.params.depId}&max=200`
+      `https://apis.datos.gob.ar/georef/api/departamentos?provincia=${this.props.match.params.id_provincia}&max=200`
     );
     const data = await respuesta.json();
 
@@ -30,9 +30,6 @@ class Departamento extends React.Component {
           {this.state.data.departamentos.map(p => (
             <li key={p.id}>
               <p>{p.nombre}</p>
-              {/* <Link to={`/${p.nombre}`}>
-                
-              </Link> */}
             </li>
           ))}
         </ul>

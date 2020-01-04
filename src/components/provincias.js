@@ -61,7 +61,7 @@ class Provincia extends React.Component {
           // nombre={this.state.data.provincias.map(p => p.nombre)}
           googleMapURL={mapURL}
           // coords={this.state.data.provincias.map(p => p.centroide)}
-          containerElement={<div style={{ height: `400px` }} />}
+          containerElement={<div style={{ height: `600px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
           loadingElement={<div style={{ height: `100%` }} />}
         />
