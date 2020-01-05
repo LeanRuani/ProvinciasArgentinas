@@ -28,10 +28,14 @@ const Map = props => {
           return (
             <Marker
               title={marker.nombre}
-              label={marker.nombre}
+              label={<p> {marker.nombre} </p>}
               position={{
                 lat: parseFloat(marker.centroide.lat),
                 lng: parseFloat(marker.centroide.lon)
+              }}
+              icon={{
+                url: `https://freesvg.org/img/1426578732.png`,
+                scaledSize: new window.google.maps.Size(25, 25)
               }}
               clickable={true}
               onClick={() => {
@@ -51,10 +55,18 @@ const Map = props => {
               lng: parseFloat(seleccion_provincia.centroide.lon)
             }}
           >
-            <div>
-              <h2>{seleccion_provincia.nombre}</h2>
-              <p>lorem ipsum</p>
-              <Link to={`/${seleccion_provincia.id}`}>Departamentos</Link>
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">{seleccion_provincia.nombre}</h4>
+                <h6 className="card-subtitle mb-2 text-muted">
+                  Provincia Argentina
+                </h6>
+                <p className="text-danger">
+                  Accede a
+                  <Link to={`/${seleccion_provincia.id}`}> Departamentos</Link>{" "}
+                  para ver todas las ciudades de {seleccion_provincia.nombre}
+                </p>
+              </div>
             </div>
           </InfoWindow>
         )}

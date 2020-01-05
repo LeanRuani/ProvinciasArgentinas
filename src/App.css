@@ -2,16 +2,13 @@ body {
   background-color: #cc957b;
 }
 
-.header-container {
-  background-color: #282c34;
-}
-
-.carta:hover {
-  color: red;
-}
-
 .App {
   text-align: center;
+}
+
+.logo_header {
+  width: 50px;
+  height: 70px;
 }
 
 .App-logo {

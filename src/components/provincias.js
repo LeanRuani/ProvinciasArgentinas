@@ -71,14 +71,3 @@ class Provincia extends React.Component {
 }
 
 export default Provincia;
-
-// {/* <div className="row m-2 "> */}
-// {this.state.data.provincias.map(p =>
-//
-//   ({
-//     /*
-//   })
-
-//   // </div>
-// )}
-// {/* </div> */}
