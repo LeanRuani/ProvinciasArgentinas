@@ -6,6 +6,7 @@ import Departamento from "./components/departamentos";
 
 import Provincia from "./components/provincias";
 import Header from "./components/header";
+import Footer from "./components/footer";
 
 import "./App.css";
 
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/:id_provincia" component={Departamento} />
         </Switch>
       </BrowserRouter>
+      <Footer />
     </React.Fragment>
   );
 }
