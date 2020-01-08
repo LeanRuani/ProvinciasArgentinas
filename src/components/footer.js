@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer class="page-footer font-weight-bold bg-primary text-center white">
+    <footer class="page-footer font-weight-bold bg-primary text-center">
       <div class="footer-copyright text-center py-3">
         © 2020 - API del Servicio de Normalización de Datos Geográficos de
         Argentina =>
