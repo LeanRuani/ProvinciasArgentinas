@@ -3,9 +3,7 @@ import { Switch, BrowserRouter, Route } from "react-router-dom";
 // import Map from "./components/Maps";
 // import credencial from "./components/credenciales";
 import Departamento from "./components/Departamentos";
-
 import Provincia from "./components/Provincia";
-import Footer from "./containers/footer";
 
 import "./App.css";
 
@@ -18,7 +16,6 @@ function App() {
           <Route exact path="/:id_provincia" component={Departamento} />
         </Switch>
       </BrowserRouter>
-      <Footer />
     </React.Fragment>
   );
 }

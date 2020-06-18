@@ -1,18 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker,
-} from "react-google-maps";
 
+import Map from "./mapDepartamentos";
 import credencial from "./credenciales";
+
 const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credencial.mapsKey}`;
 
 class Departamento extends React.Component {
   state = {
     data: {
+      provincias: {
+        centroide: [],
+      },
       departamentos: [],
     },
   };
@@ -36,24 +34,14 @@ class Departamento extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="w-50 p-3">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>N°</th>
-                <th>Nombre</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.data.departamentos.map((p) => (
-                <tr>
-                  <th key={p.id}>{p.id}</th>
-                  <td>{p.nombre}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Map
+          className="map"
+          id_nombre={this.state.data.departamentos.map((p) => p)}
+          googleMapURL={mapURL}
+          containerElement={<div style={{ height: `600px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+          loadingElement={<div style={{ height: `100%` }} />}
+        />
       </React.Fragment>
     );
   }

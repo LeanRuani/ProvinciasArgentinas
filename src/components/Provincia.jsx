@@ -55,8 +55,8 @@ class Provincia extends React.Component {
     return (
       <React.Fragment>
         {/* {this.state.data.provincias.map(p => console.log(p.centroide.lat))} */}
-
         <Map
+          className="map"
           id_nombre={this.state.data.provincias.map(p => p)}
           // nombre={this.state.data.provincias.map(p => p.nombre)}
           googleMapURL={mapURL}
