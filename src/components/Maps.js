@@ -20,8 +20,9 @@ const Map = (props) => {
         {props.id_nombre.map((marker) => {
           return (
             <Marker
+              key={marker.id}
               title={marker.nombre}
-              label={<p> {marker.nombre} </p>}
+              // label={<p> {marker.nombre} </p>}
               position={{
                 lat: parseFloat(marker.centroide.lat),
                 lng: parseFloat(marker.centroide.lon),

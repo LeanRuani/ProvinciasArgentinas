@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   withScriptjs,
   withGoogleMap,
@@ -6,22 +7,25 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-import { Link } from "react-router-dom";
 
-const Map = (props) => {
-  const [seleccion_departamento, setSelectedPark] = useState(null);
+const Map_depto = (props) => {
+  const [depto, setDepto] = useState(null);
 
   return (
     <React.Fragment>
       <GoogleMap
         defaultZoom={5}
-        defaultCenter={{ lat: -34.603722, lng: -58.381592 }}
+        defaultCenter={{
+          lat: -34.603722,
+          lng: -58.381592,
+        }}
       >
         {props.id_nombre.map((marker) => {
           return (
             <Marker
+              key={marker.id}
               title={marker.nombre}
-              label={<p> {marker.nombre} </p>}
+              label={<p>{marker.nombre} </p>}
               position={{
                 lat: parseFloat(marker.centroide.lat),
                 lng: parseFloat(marker.centroide.lon),
@@ -31,29 +35,24 @@ const Map = (props) => {
                 scaledSize: new window.google.maps.Size(25, 25),
               }}
               clickable={true}
-              onClick={() => {
-                setSelectedPark(marker);
-              }}
             ></Marker>
           );
         })}
 
-        {seleccion_departamento && (
+        {depto && (
           <InfoWindow
             onCloseClick={() => {
-              setSelectedPark(null);
+              setDepto(null);
             }}
             position={{
-              lat: parseFloat(seleccion_departamento.centroide.lat),
-              lng: parseFloat(seleccion_departamento.centroide.lon),
+              lat: parseFloat(depto.centroide.lat),
+              lng: parseFloat(depto.centroide.lon),
             }}
-          >
-            <div className="card">d</div>
-          </InfoWindow>
+          ></InfoWindow>
         )}
       </GoogleMap>
     </React.Fragment>
   );
 };
 
-export default withScriptjs(withGoogleMap(Map));
+export default withScriptjs(withGoogleMap(Map_depto));

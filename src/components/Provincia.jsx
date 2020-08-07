@@ -14,9 +14,9 @@ class Provincia extends React.Component {
     error: null,
     data: {
       provincias: {
-        centroide: []
-      }
-    }
+        centroide: [],
+      },
+    },
   };
 
   componentDidMount() {
@@ -33,12 +33,12 @@ class Provincia extends React.Component {
       const data = await respuesta.json();
       this.setState({
         carga: false,
-        data: data
+        data: data,
       });
     } catch (error) {
       this.setState({
         carga: false,
-        error: error
+        error: error,
       });
     }
   };
@@ -54,13 +54,10 @@ class Provincia extends React.Component {
 
     return (
       <React.Fragment>
-        {/* {this.state.data.provincias.map(p => console.log(p.centroide.lat))} */}
         <Map
           className="map"
-          id_nombre={this.state.data.provincias.map(p => p)}
-          // nombre={this.state.data.provincias.map(p => p.nombre)}
+          id_nombre={this.state.data.provincias.map((p) => p)}
           googleMapURL={mapURL}
-          // coords={this.state.data.provincias.map(p => p.centroide)}
           containerElement={<div style={{ height: `600px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
           loadingElement={<div style={{ height: `100%` }} />}

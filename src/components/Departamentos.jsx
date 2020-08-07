@@ -1,6 +1,5 @@
 import React from "react";
-
-import Map from "./mapDepartamentos";
+import Map_depto from "./mapDepartamentos";
 import credencial from "./credenciales";
 
 const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credencial.mapsKey}`;
@@ -28,13 +27,13 @@ class Departamento extends React.Component {
     this.setState({
       data: data,
     });
-    console.log(data);
   };
 
   render() {
     return (
       <React.Fragment>
-        <Map
+        <Map_depto
+          key={this.state.data.departamentos.map((p) => p.id)}
           className="map"
           id_nombre={this.state.data.departamentos.map((p) => p)}
           googleMapURL={mapURL}
